@@ -19,14 +19,14 @@
 	//
 	// 常量
 	//
-	var D = 120;				//泡泡直径
+	var D = 60;				//泡泡直径
 	var K = 0.999;
 
 	var POW_RATE = 0.0001;		//补偿概率
 	var POW_RANGE = 0.8;		//补偿范围(基于诞生速度)
 
-	function SPEED_X(){return 8 + RND() * 4}
-	function SPEED_Y(){return 6 + RND() * 2}
+	function SPEED_X(){return 4 + RND() * 4}
+	function SPEED_Y(){return 3 + RND() * 2}
 
 
 	var arrBubs = [];

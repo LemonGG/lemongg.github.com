@@ -1227,7 +1227,7 @@ cc.game = {
     _runMainLoop: function () {
         var self = this, callback, config = self.config, CONFIG_KEY = self.CONFIG_KEY,
             director = cc.director;
-        director.setDisplayStats(config[CONFIG_KEY.showFPS]);
+        //director.setDisplayStats(config[CONFIG_KEY.showFPS]);
         callback = function () {
             if (!self._paused) {
                 director.mainLoop();
