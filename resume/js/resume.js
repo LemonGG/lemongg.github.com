@@ -1,15 +1,37 @@
 
 
+var _body;
+var _canvas;
+
 $(function(){
-	var _body = $("body")
-	var _canvas = $("<canvas id='resumeCanvas'></canvas>")
-	
-	
-	//  create a canvas 
+	_body = $("body")
+	_canvas = $("<canvas id='resumeCanvas'></canvas>")
 	_canvas.appendTo(_body)
+})
+window.onload = function(){
+	//alert(document.body)
+	
+	//--------------------
+	$(function(){
+		var MAX = 5
+		var i = 0
+		
+		function gggo(){
+			CreateBubble()
+			
+			if(++i < MAX){
+				setTimeout(gggo, 1000);
+			}
+		}
+		gggo()
+		
+	})
+	//-----------------------
 	
 	
-	var context = document.getElementById("resumeCanvas").getContext('2d');
+	
+	//--------------------------
+	
 	// run cocos
 	cc.game.onStart = function(){
 		
@@ -1070,23 +1092,21 @@ $(function(){
       	
 	}
 	cc.game.run("resumeCanvas")
-})
+	
+	//--------------------------------
+	
 
 
-/**
- * 气泡
- */
+
+}
+
 $(function(){
-	var MAX = 5
-	var i = 0
 	
-	function gggo(){
-		CreateBubble()
-		
-		if(++i < MAX){
-			setTimeout(gggo, 1000);
-		}
-	}
-	gggo()
+	
+	
+	
 	
 })
+
+
+
