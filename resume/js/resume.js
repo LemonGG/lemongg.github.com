@@ -50,7 +50,7 @@ window.onload = function(){
       		resumeHead:"img/1442854190954.png",
       		resumeHead_down:"img/1442854190955.png",
       		rectWhite : "img/c0.png",
-      		rectGreen : "img/c1.png",
+      		rectGreen : "img/c1.jpg",
       	}
       	var resList = [
       		res.resumeHead,
@@ -68,7 +68,7 @@ window.onload = function(){
     				var bg = new cc.Sprite(res.bg);
     				bgColor.addChild(bg)
     				bg.setPosition(w>>1,h>>1);
-    				bg.setOpacity(50)
+    				bg.setOpacity(150)
 
 
 					var self = this;
@@ -88,7 +88,7 @@ window.onload = function(){
       				}
       				
       				var mainPage = getLayer(0,"个人简历")
-      				var aboutPage = getLayer(1,"关于我")
+      				var aboutPage = getLayer(1,"个人资料")
       				var selfAssessmentPage = getLayer(2,"自我评价")
       				var experiencePage = getLayer(3,"项目经验")
       				var experiencePage1 = getLayer(4,"项目经验")
@@ -109,7 +109,7 @@ window.onload = function(){
 							curPage--
 						}
 						for(var i = 0; i < layerList.length; i++){
-							layerList[i].runAction(cc.moveBy(1,cc.p(ossetX,0)))
+							layerList[i].runAction(cc.moveBy(0.2,cc.p(ossetX,0)))
 						}
 					}
 					
@@ -167,7 +167,7 @@ window.onload = function(){
 	    				var rWarning = new cc.LabelTTF("点击头像或左右滑动查看详细 信息","",24)
 	    				mainPage.addChild(rWarning)
 	    				rWarning.setPosition(w>>1,(h>>1)+200)
-	    				rWarning.setOpacity(180)
+	    				rWarning.setOpacity(150)
 	    				
 	    				
 	    				// 开始精灵  
@@ -252,12 +252,12 @@ window.onload = function(){
 								{
 									c:"籍贯",
 									x:100,
-									y:620
+									y:650
 								},
 								{
 									c:"河南",
 									x:200,
-									y:620
+									y:650
 								}
 							)
 						}
@@ -272,12 +272,12 @@ window.onload = function(){
 								{
 									c:"民族",
 									x:440,
-									y:620
+									y:650
 								},
 								{
 									c:"汉",
 									x:540,
-									y:620
+									y:650
 								}
 							)
 						}
@@ -291,12 +291,12 @@ window.onload = function(){
 								{
 									c:"学历",
 									x:100,
-									y:520
+									y:580
 								},
 								{
 									c:"大专",
 									x:200,
-									y:520
+									y:580
 								}
 							)
 						}
@@ -310,12 +310,12 @@ window.onload = function(){
 								{
 									c:"专业",
 									x:440,
-									y:520
+									y:580
 								},
 								{
 									c:"动漫",
 									x:540,
-									y:520
+									y:580
 								}
 							)
 						}
@@ -443,7 +443,7 @@ window.onload = function(){
 						
 						selfAssessmentPage.init = function(){
 							function getItem(param){
-								var c = new cc.LabelTTF(param.c,"",18)
+								var c = new cc.LabelTTF(param.c,"",22)
 								c.setAnchorPoint(0,0.5)
 								selfAssessmentPage.addChild(c)
 								c.setPosition(param.x,param.y)
@@ -516,7 +516,7 @@ window.onload = function(){
 							)
 							getItem(
 								{
-									c:"这个世界上任何奇迹的产生都是经过千辛万苦的努力而得的，首先承认\n自己的平凡，然后用千百倍的努力来弥补平凡",
+									c:"这个世界上任何奇迹的产生都是经过千辛万苦的努力而得的，\n首先承认自己的平凡，然后用千百倍的努力来弥补平凡",
 									x:20,
 									y:300
 								}
@@ -618,6 +618,26 @@ window.onload = function(){
 										x:140,
 										y:500
 									},
+									{
+										text:"缓存池技术 | 切片技术 | 异步加载 | 代码规范",
+										x:140,
+										y:480
+									},
+									{
+										text:"基于flash的flax作为cocos的可视化编辑使开发效率明显提升",
+										x:140,
+										y:460
+									},
+									{
+										text:"svn团队协作工具使团队开发避免很多代码合并的问题",
+										x:140,
+										y:440
+									},
+									{
+										text:"cocos2d-js 一份代码可打包web/android/ios等平台",
+										x:140,
+										y:420
+									}
 								]
 							}
 						)
@@ -666,6 +686,26 @@ window.onload = function(){
 										x:140,
 										y:260
 									},
+									{
+										text:"切除冗余——只对可能部分检测",
+										x:140,
+										y:240
+									},
+									{
+										text:"化繁为简——降解复杂简单叠加",
+										x:140,
+										y:220
+									},
+									{
+										text:"构造循环——同类代码巧妙合并",
+										x:140,
+										y:200
+									},
+									{
+										text:"变死为活——封装代码转为函数",
+										x:140,
+										y:180
+									}
 								]
 							}
 						)
@@ -753,6 +793,31 @@ window.onload = function(){
 										x:140,
 										y:540
 									},
+									{
+										text:"静态的不需互动的图形，使用Shape对象",
+										x:140,
+										y:520
+									},
+									{
+										text:"不需要时间轴的互动图形，使用Sprite对象",
+										x:140,
+										y:500
+									},
+									{
+										text:"需要使用时间轴的动画，使用MovieClip对象",
+										x:140,
+										y:480
+									},
+									{
+										text:"垃圾回收，不用的对象要置null",
+										x:140,
+										y:460
+									},
+									{
+										text:"位图的操作，使用matrix会节省大量内存与CPU的占用",
+										x:140,
+										y:440
+									}
 								]
 							}
 						)
@@ -806,6 +871,16 @@ window.onload = function(){
 										x:140,
 										y:240
 									},
+									{
+										text:"在FOR循环内new对象要小心，每次new都会增大内存",
+										x:140,
+										y:220
+									},
+									{
+										text:"为了确保被垃圾回收，首先保证该对象没有其他引用",
+										x:140,
+										y:200
+									}
 								]
 							}
 						)
@@ -982,25 +1057,25 @@ window.onload = function(){
       				{
       					function addItem5(param){
       						
-      						param.rx = param.rx+5;
+      						param.rx = param.rx-20;
       						var bar = new cc.Sprite(res.rectGreen)
       						skillsPage.addChild(bar)
       						bar._setAnchorX(0)
-      						bar.setScaleX(param.rwidth*5)
-      						bar.setScaleY(param.rheight)
+      						bar.setScaleX(param.rwidth*5/100)
+      						bar.setScaleY(param.rheight/200)
       						bar.setPosition(param.rx,param.ry)
       						
-        						var title = new cc.LabelTTF(param.name + " | 掌握程度 : " + param.rwidth + "%100","","24")
+        						var title = new cc.LabelTTF(param.name + " | 掌握程度 : " + param.rwidth + "%100","微软雅黑","20")
         						skillsPage.addChild(title)
         						title.setPosition(param.rx,param.ry+26)
         						title._setAnchorX(0)
       					}
       					
-      					var line = new cc.Sprite(res.rectWhite)
-      					skillsPage.addChild(line)
-      					line.setScaleX(10)
-      					line.setScaleY(600)
-      					line.setPosition(100,400)
+//    					var line = new cc.Sprite(res.rectWhite)
+//    					skillsPage.addChild(line)
+//    					line.setScaleX(10)
+//    					line.setScaleY(600)
+//    					line.setPosition(100,400)
       					
       					
       					addItem5(
