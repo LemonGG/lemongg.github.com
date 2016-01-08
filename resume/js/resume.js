@@ -11,21 +11,25 @@ $(function(){
 window.onload = function(){
 	//alert(document.body)
 	
-	//--------------------
-	$(function(){
-		var MAX = 5
-		var i = 0
-		
-		function gggo(){
-			CreateBubble()
+	
+	if(!cc.sys.isMobile){
+		//--------------------
+		$(function(){
+			var MAX = 5
+			var i = 0
 			
-			if(++i < MAX){
-				setTimeout(gggo, 1000);
+			function gggo(){
+				CreateBubble()
+				
+				if(++i < MAX){
+					setTimeout(gggo, 1000);
+				}
 			}
-		}
-		gggo()
-		
-	})
+			gggo()
+			
+		})	
+	}
+	
 	//-----------------------
 	
 	
