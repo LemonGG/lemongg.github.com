@@ -109,7 +109,8 @@ window.onload = function(){
 							)
 						}
 						self.scheduleOnce(function(){
-							moveingPages.shift()
+							var item = moveingPages.shift()
+							item.removeFromParent()
 						},0.2)
 					}
 					
