@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="text-center">
+			<h1 class="page-header">常见错误</h1>
+		</div>
+		
+		<div class="container">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3>LINK : fatal error LNK1123: 转换到 COFF 期间失败: 文件无效或损坏</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">
+							1. 安装目录/Microsoft Visual Studio 10.0\vc\bin\cvtres.exe	
+						</li>
+						<li class="list-group-item">
+							2. C:\Windows\Microsoft.NET\Framework\v4.0.30319\cvtres.exe	
+						</li>
+						<li class="list-group-item">
+							3. 右键属性|详细信息 查看两者版本号，比较上面两个文件的版本号，删除/重命名较旧的版本	
+						</li>
+					</ul>
+					
+				</div>
+			</div>	
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/io.github.lemongg.css" />
+	</head>
+	<body>
+		<div class="bg-color-c666666">
+			<a href="//nodejs.org">nodejs官方网站：nodejs.org</a>
+		</div>
+		
+		<div class="bg-color-c666666">
+			<h4>node环境搭建</h4>
+			<ul>
+				<li> 官网上下载与自己操作系统相对应的node安装包</li>
+				<li> 安装只需要一路next就好了</li>
+				<li> 完成后打开命令行窗口输入:node -v</li>
+				<li> 成功输出版本号就代表搭建成功</li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<div class="bg-color-c666666">
+			<h4>创建一个简单的服务器</h4>
+			<pre><code>
+			// 加载http模块
+			// http是node内置模块，所有可以直接加载使用
+			var http = require("http");
+			
+			
+			// 创建一个服务器
+			var server = http.createServer(function(req,res){
+				res.end("This is a simpile server.")
+			})
+			
+			// 设置服务器端口为3000，启动服务
+			server.listen(3000)
+			
+			
+			/*
+				步骤:
+					1.创建index.js,内容如上
+					2.打开命令行窗口,输入node index
+					3.打开浏览器，输入：localhost:3000
+					4.查看页面上是否显示 This is a simpile server.
+					5.显示代表成功,不显示请重新检查是否有什么遗漏的
+			*/
+			</code></pre>
+		</div>
+		
+		<div class="bg-color-c666666">
+			<h4>nodejs 热编译工具</h4>
+			<pre>
+				<code>
+					//安装
+					npm install supervisor -g
+					//使用
+					supervisor index.js
+				</code>
+			</pre>
+		</div>
+	</body>
+</html>
