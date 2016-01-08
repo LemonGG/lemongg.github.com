@@ -19,8 +19,9 @@
 	//
 	// 常量
 	//
-	var D = 60;				//泡泡直径
+	var D = 120;				//泡泡直径
 	var K = 0.999;
+	cc.log(cc.sys.isMobile)	
 
 	var POW_RATE = 0.0001;		//补偿概率
 	var POW_RANGE = 0.8;		//补偿范围(基于诞生速度)

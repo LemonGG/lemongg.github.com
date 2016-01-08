@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		
+		
+		
+		<!--星空-->
+		<script>
+			var BW = 2000//document.documentElement.clientWidth//800; //canvas width
+			var BH = 8000//document.documentElement.scrollHeight//600; //canvas height
+			var MAX_STAR_SIZE = 3;
+					var MAX_STAR_SPEED = 1;
+					var STAR_COUNT = 120;
+					var BGCOLOR = "black";
+					var ctx;
+					var stars = [];
+					function rndf(n){
+						return Math.floor(Math.random()*n);
+					}
+					function rndc(n){
+						return Math.ceil(Math.random()*n);
+					}
+					function Star(){
+						this.reset = function(){
+							this.x = 0;
+							this.y = rndf(BH);
+							this.size = rndc(MAX_STAR_SIZE);
+							this.vx = MAX_STAR_SPEED*this.size/MAX_STAR_SIZE;
+							this.vy = 0;
+							this.color = "rgba("+rndf(255)+", "+rndf(255)+", "+rndf(255)+", 0.5)";
+						};
+						this.reset();
+						this.x = rndf(BW);
+					}
+					function render(){
+						ctx.globalCompositeOperation = "source-over";
+						ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+						ctx.fillRect(0, 0, BW, BH);
+						ctx.globalCompositeOperation = "lighter";
+						for(var i = 0; i < STAR_COUNT; ++i){
+							var p = stars[i];
+							ctx.beginPath();
+							var gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+							gradient.addColorStop(0, "white");
+							gradient.addColorStop(0.4, "white");
+							gradient.addColorStop(0.4, p.color);
+							gradient.addColorStop(1, "black");
+							ctx.fillStyle = gradient;
+							ctx.arc(p.x, p.y, p.size, Math.PI*2, false);
+							ctx.fill();
+							p.x += p.vx;
+							p.y += p.vy;
+							if(p.x<=0 || p.x>=BW || p.y<=0 || p.y>=BH){
+								p.reset();
+							}
+						}
+					}
+					function initStar(){
+						if (!window.console){
+							console = {log:function(){},debug:function(){}};
+						}
+						//create canvas
+						
+						var cv = document.getElementById("star")//document.createElement('canvas');
+						cv.width = BW;
+						cv.height = BH;
+						cv.style.background = BGCOLOR;
+						document.body.appendChild(cv);
+						ctx = cv.getContext("2d");
+						//create all stars
+						for(var i=0;i<STAR_COUNT;++i){
+							var s = new Star();
+							stars.push(s);
+						}
+						setInterval(render, 33);
+					};
+		</script>
+		<!--End-->
+	</head>
+
+	<body>
+		
+		<canvas id="star" style="position: absolute; z-index: -1;"></canvas>
+			<script>
+				initStar();
+			</script>
+		
+		
+		<div style="position: fixed; z-index: 2147483647;right: 60px;">
+
+			<ul class="list-group">
+				<li class="list-group-item"><a href="#a1">自我介绍</a></li>
+				<li class="list-group-item"><a href="#a2">求职意向</a></li>
+				<li class="list-group-item"><a href="#a3">自我评价</a></li>
+				<li class="list-group-item"><a href="#a4">项目经验</a></li>
+				<li class="list-group-item"><a href="#a5">工作经历</a></li>
+				<li class="list-group-item"><a href="#a6">专业技能</a></li>
+			</ul>
+			
+			
+		</div>
+		
+		<div style="height: 70px;"></div>
+		<section class="container" id="a1">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						关于我
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<tbody>
+							<tr>
+								<td>
+									<h4><small>姓名：王晓维</small></h4></td>
+								<td>
+									<h4><small>性别：男</small></h4></td>
+							</tr>
+							<tr>
+								<td>
+									<h4><small>出生年月：90年2月</small></h4></td>
+								<td>
+									<h4><small>籍贯：河南</small></h4></td>
+							</tr>
+							<tr>
+								<td>
+									<h4><small>学历：大专</small></h4></td>
+								<td>
+									<h4><small>民族：汉</small></h4></td>
+							</tr>
+							<tr>
+								<td>
+									<h4><small>专业：动漫设计与制作</small></h4></td>
+								<td>
+									<h4><small>QQ：297278806</small></h4></td>
+							</tr>
+							<tr>
+								<td>
+									<h4><small>手机：15011021101</small></h4></td>
+								<td>
+									<h4><small>Email：297278806@qq.com</small></h4></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</section>
+
+		<section class="container" id="a2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						求职意向
+					</h3>
+				</div>
+				<div class="panel-body">
+					<p>工作性质：全职 </p>
+					<p>期望职业：项目经理/h5游戏开发/游戏开发</p>
+					<p>期望行业：游戏</p>
+					<p>工作地区：北京</p>
+					<p>期望月薪：15k-20k</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="container" id="a3">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						自我评价
+					</h3>
+				</div>
+				<div class="panel-body">
+					<p>熟悉游戏开发的一般理论和方法，有较丰富的项目经验 </p>
+					<p>良好的独立分析， 错误排查和解决问题的能力， 并能关注细节</p>
+					<p>具有丰富的项目管理经验和把控能力</p>
+					<p>熟练使用cocos2d-js,egret,nodejs,actionscript3.0</p>
+					<p>具有深刻的面向对象思想</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="container" id="a4">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						项目经验
+					</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<h4><small>H5小游戏</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p><a href="http://www.59600.com">点击进入网站查看</a></p>
+									<p>工作重心以流程梳理，进度把握为主</p>
+									<p>项目负责人</p>
+								</li>
+							</ul>
+							<h4><small>上古传说</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p><a href="http://bdtg.37.com/s/1/296/6552.html?uid=2267496">点击进入游戏地址</a></p>
+									<p>游戏类型：Arpg</p>
+									<p>前端采用Actionscript3.0</p>
+									<p>服务器使用c++</p>
+									<p>ui框架无</p>
+									<p>传奇类游戏</p>
+									<p>项目进度的把握和项目研发</p>
+								</li>
+							</ul>
+							<h4><small>热血三国</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p>游戏已下线</a>
+									</p>
+									<p>游戏类型：横版rpg</p>
+									<p>前端采用Actionscript3.0</p>
+									<p>服务器使用java</p>
+									<p>ui设计使用flash</p>
+									<p>本人主要负责主ui开发</p>
+								</li>
+							</ul>
+							<h4><small>轩辕神剑</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p><a href="http://www.manmankan.com/kaifu/yys/776/411/">点击进入游戏地址</a></p>
+									<p>游戏类型：Arpg</p>
+									<p>前端采用Actionscript3.0</p>
+									<p>服务器使用c++</p>
+									<p>ui框架使用aswing</p>
+									<p>项目采用mvc模式</p>
+									<p>本人主要负责游戏的ui部分</p>
+								</li>
+							</ul>
+
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="container" id="a5">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						工作经历
+					</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<h4><small>2015-12-30</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p>乐游(北京)科技有限公司</p>
+									<p>以开发h5游戏为主</p>
+									<p>公司人数在30人左右,技术部人数为12人</p>
+									<p>本人在公司任项目经理一职</p>
+									<p>工作重心以游戏框架搭建、流程梳理为主。包括游戏的开发</p>
+								</li>
+							</ul>
+							<h4><small>2015-2-16</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p>河南羲和网络科技有限公司</p>
+									<p>以开发页游、音乐网站、app为主</p>
+									<p>本人在公司任前端主程一职</p>
+									<p>工作重心以游戏模块设计与开发为主</p>
+								</li>
+							</ul>
+							<h4><small>2013-5-18</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p>北京三迹人科技有限公司</p>
+									<p>以开发页游为主</p>
+									<p>本人在公司任前端开发工程师一职</p>
+									<p>工作重心以游戏开发为主</p>
+								</li>
+							</ul>
+							<h4><small>2012-7-28</small></h4>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<p>北京热酷</p>
+									<p>以游戏开发为主</p>
+									<p>本人在公司任前端开发工程师一职</p>
+									<p>工作重心以游戏开发为主</p>
+								</li>
+							</ul>
+							<h4><small>2012-2-23</small></h4>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="container" id="a6">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						专业技能
+					</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<h5>Cocos2d-js/Cococs2d-html5</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<h5>Flash</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<h5>Actionscript3</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<h5>Egret</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<h5>Node</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<h5>Photoshop</h5>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+									<span class="sr-only">40% Complete (success)</span>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<div style="height:100px;"></div>
+		
+		
+		
+	</body>
+
+</html>
