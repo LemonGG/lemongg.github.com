@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Cocos2d-js 文本菜单</title>
+	</head>
+	<body>
+		<h1>cocos2d-js 文本菜单使用</h1>
+		<hr />
+		<div>
+			<h2>cc.MenuItemFont</h2>
+			<div>
+				<pre>
+					cc.MenuItemFont.setFontName("Times New Roman");                 
+       				cc.MenuItemFont.setFontSize(86);     
+       				var item1 = new cc.MenuItemFont("Start", this.menuItem1Callback, this);
+       				
+       				var  mn = new cc.Menu(item1, ...);                              
+			        mn.alignItemsVertically();                                      
+			        this.addChild(mn);                                              
+				</pre>
+			</div>
+			
+		</div>
+	</body>
+</html>
